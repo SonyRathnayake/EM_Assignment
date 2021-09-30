@@ -4,15 +4,12 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: [
-    "eslint:recommended",
-    "google",
-  ],
+  extends: ["eslint:recommended", "google"],
   parserOptions: {
-    "ecmaVersion": 8,
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true,
+    ecmaVersion: 8,
+    ecmaFeatures: {
+      experimentalObjectRestSpread: true,
+      jsx: true,
     },
   },
   rules: {
