@@ -158,7 +158,7 @@ const DrawerContent: React.FC<
           label="Mark Attendance"
           icon="share"
           {...{ ...props, translateX }}
-          onpress={() => props.navigation.dispatch(DrawerActions.closeDrawer())}
+          onpress={() => props.navigation.navigate('QR')}
         />
         <DrawerItemRow
           label="View Attendance"

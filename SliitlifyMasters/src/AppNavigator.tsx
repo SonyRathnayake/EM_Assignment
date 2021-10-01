@@ -17,6 +17,7 @@ import {
   FeedbackScene,
   InviteFriendScene,
 } from '.';
+import QRScene from './QrScene';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -40,6 +41,7 @@ const DrawerNavigator: React.FC = () => {
       <Drawer.Screen name="Help" component={HelpScene} />
       <Drawer.Screen name="Feedback" component={FeedbackScene} />
       <Drawer.Screen name="Invite Friend" component={InviteFriendScene} />
+      <Drawer.Screen name="QR" component={QRScene} />
     </Drawer.Navigator>
   );
 };
