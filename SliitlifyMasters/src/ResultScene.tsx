@@ -14,10 +14,8 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useHeaderHeight } from '@react-navigation/stack';
-import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AppImages } from '../res';
-import { showToast } from './util/action';
 import Config from './Config';
 import { WebView } from 'react-native-webview';
 interface Props {}
@@ -146,32 +144,10 @@ const HomeScene: React.FC<Props> = () => {
         </Pressable>
       </View>
       <WebView
-        source={{ uri: 'https://courseweb.sliit.lk/' }}
+        source={{ uri: 'http://student.sliit.lk/' }}
         injectedJavaScript={INJECTEDJAVASCRIPT}
         style={{ flex: 1 }}
       />
-      {/* <FlatList
-        key={isGrid ? 'G' : 'L'}
-        style={{ marginTop: headerHeight, marginHorizontal: 6 }}
-        contentContainerStyle={{ flexGrow: 1 }}
-        data={DEMOS}
-        keyExtractor={(item) => item.name}
-        numColumns={isGrid ? 2 : 1}
-        renderItem={(data) => (
-          <ListItem
-            data={data}
-            isGrid={isGrid}
-            onScreenClicked={() => {
-              if (data.item.screenName) {
-                navigation.navigate(data.item.screenName);
-              } else {
-                showToast('Coming soon...');
-              }
-            }}
-          />
-        )}
-        showsVerticalScrollIndicator={false}
-      /> */}
     </SafeAreaView>
   );
 };

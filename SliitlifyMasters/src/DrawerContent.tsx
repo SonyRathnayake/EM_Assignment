@@ -18,6 +18,7 @@ import Animated from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AppImages } from '../res';
 import Config from './Config';
+import { showToast } from './util/action';
 
 interface DrawerItemProps {
   label: string;
@@ -137,7 +138,7 @@ const DrawerContent: React.FC<
         />
         <DrawerItemRow
           label="View TimeTable"
-          icon={AppImages.support_icon}
+          icon={AppImages.calander_icon}
           isAssetIcon
           {...{ ...props, translateX }}
           onpress={() => props.navigation.navigate('Help')}
@@ -150,21 +151,30 @@ const DrawerContent: React.FC<
         />
         <DrawerItemRow
           label="View Profile"
-          icon="group"
+          icon="info"
           {...{ ...props, translateX }}
           onpress={() => props.navigation.navigate('Invite Friend')}
         />
         <DrawerItemRow
           label="Mark Attendance"
-          icon="share"
+          icon={AppImages.qr_icon}
+          isAssetIcon
           {...{ ...props, translateX }}
           onpress={() => props.navigation.navigate('QR')}
         />
         <DrawerItemRow
           label="View Attendance"
-          icon="info"
+          icon={AppImages.view_icon}
+          isAssetIcon
           {...{ ...props, translateX }}
           onpress={() => props.navigation.dispatch(DrawerActions.closeDrawer())}
+        />
+        <DrawerItemRow
+          label="Sliit Portal"
+          icon={AppImages.student_icon}
+          isAssetIcon
+          {...{ ...props, translateX }}
+          onpress={() => props.navigation.navigate('Marks')}
         />
       </DrawerContentScrollView>
 
@@ -173,6 +183,8 @@ const DrawerContent: React.FC<
           styles.signOutBtnStyle,
           { opacity: !Config.isAndroid && pressed ? 0.4 : 1 },
         ]}
+        onPress={() => props.navigation.navigate('Login')}
+        onPressOut={() => showToast('Signed out successfully')}
         android_ripple={{ color: 'lightgrey' }}
       >
         <Text

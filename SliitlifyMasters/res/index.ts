@@ -4,6 +4,10 @@ const AppImages = {
   feedbackImage: require('./home/feedbackImage.png'),
   helpImage: require('./home/helpImage.png'),
   inviteImage: require('./home/inviteImage.png'),
+  view_icon: require('./home/view.png'),
+  qr_icon: require('./home/qr.png'),
+  calander_icon: require('./home/calendar.png'),
+  student_icon: require('./home/student.png'),
 
   // hotel
   hotel_booking: require('./hotel/hotel_booking.png'),
@@ -18,6 +22,8 @@ const AppImages = {
 
   // design_course
   design_course: require('./design_course/design_course.png'),
+
+  sliitLogo: require('./assets/sliit.png'),
 };
 
 export { AppImages };
