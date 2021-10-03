@@ -43,12 +43,11 @@ const InviteFriendScene: React.FC<Props> = () => {
       </View>
 
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Animated.View style={[styles.drawerAvatarStyle, styles.avatarShadow]}>
-          <Animated.Image
-            style={[styles.drawerAvatarStyle]}
-            source={AppImages.userImage}
-          />
-        </Animated.View>
+        <Animated.Image
+          style={[styles.drawerAvatarStyle]}
+          source={AppImages.userImage}
+        />
+
         <Text style={styles.title}>Sonal Rathnayake</Text>
         <Text style={styles.subTitle}>ms21911958@mysliit.lk</Text>
       </View>
@@ -123,7 +122,7 @@ const styles = StyleSheet.create({
   },
   cardView: {
     width: deviceWidth - 32,
-    height: deviceHeight - 350,
+    height: deviceHeight - 300,
     alignSelf: 'center',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -132,7 +131,8 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginRight: 5,
     marginTop: '10%',
-    backgroundColor: 'white',
+    marginBottom: '3%',
+    backgroundColor: '#ccccb3',
   },
 });
 

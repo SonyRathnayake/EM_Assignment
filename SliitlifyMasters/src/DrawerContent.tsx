@@ -153,7 +153,7 @@ const DrawerContent: React.FC<
           label="View Profile"
           icon="info"
           {...{ ...props, translateX }}
-          onpress={() => props.navigation.navigate('Invite Friend')}
+          onpress={() => props.navigation.navigate('Profile')}
         />
         <DrawerItemRow
           label="Mark Attendance"

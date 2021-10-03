@@ -20,7 +20,7 @@ import {
 import QRScene from './QrScene';
 import LoginScene from './LoginScene';
 import ResultScene from './ResultScene';
-
+import ProfileScene from './ProfileScene';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -43,7 +43,7 @@ const DrawerNavigator: React.FC = () => {
       <Drawer.Screen name="Home" component={HomeScene} />
       <Drawer.Screen name="Help" component={HelpScene} />
       <Drawer.Screen name="Feedback" component={FeedbackScene} />
-      <Drawer.Screen name="Invite Friend" component={InviteFriendScene} />
+      <Drawer.Screen name="Profile" component={ProfileScene} />
       <Drawer.Screen name="QR" component={QRScene} />
       <Drawer.Screen name="Login" component={LoginScene} />
       <Drawer.Screen name="Marks" component={ResultScene} />
