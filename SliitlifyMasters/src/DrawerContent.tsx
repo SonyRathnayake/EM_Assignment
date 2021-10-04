@@ -184,8 +184,8 @@ const DrawerContent: React.FC<
           styles.signOutBtnStyle,
           { opacity: !Config.isAndroid && pressed ? 0.4 : 1 },
         ]}
-        onPress={() => props.navigation.navigate('Login')}
-        onPressOut={() => showToast('Signed out successfully')}
+        //onPress={() => props.navigation.navigate('Login')}
+        onPressOut={() => showToast('Signed out not Implemented yet')}
         //onPressOut={() => }
         android_ripple={{ color: 'lightgrey' }}
       >

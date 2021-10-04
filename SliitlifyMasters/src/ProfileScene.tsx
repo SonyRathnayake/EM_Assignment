@@ -16,10 +16,12 @@ import { DrawerNavigationProp } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AppImages } from '../res';
 import Config from './Config';
+import { readFirestoreUserId } from './api/userApi';
 
 interface Props {}
 const deviceWidth = Dimensions.get('screen').width;
 const deviceHeight = Dimensions.get('screen').height;
+const mSno = 'LM3436436';
 const InviteFriendScene: React.FC<Props> = () => {
   const navigation = useNavigation<DrawerNavigationProp<{}>>();
 

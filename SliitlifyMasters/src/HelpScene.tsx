@@ -8,12 +8,15 @@ import {
   SafeAreaView,
   Platform,
   StatusBar,
+  Dimensions,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AppImages } from '../res';
 import Config from './Config';
+const deviceWidth = Dimensions.get('screen').width;
+const deviceHeight = Dimensions.get('screen').height;
 
 interface Props {}
 
@@ -38,16 +41,14 @@ const HelpScene: React.FC<Props> = () => {
           <Icon name="menu" size={25} color="black" />
         </Pressable>
       </View>
-      <Image
-        style={styles.image}
-        source={AppImages.helpImage}
-        resizeMode="cover"
-      />
-      <Text style={styles.title}>How can we help you?</Text>
-      <Text style={styles.subTitle}>
-        It looks like you are experiencing problems{'\n'}with our sign up
-        process. We are here to{'\n'}help so please get in touch with us
-      </Text>
+      <View style={styles.imageBox}>
+        <Image
+          style={styles.image}
+          source={AppImages.timeTable}
+          resizeMode="cover"
+        />
+      </View>
+      <Text style={styles.title}>Your Current Timetable</Text>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Pressable
           style={({ pressed }) => [
@@ -56,7 +57,7 @@ const HelpScene: React.FC<Props> = () => {
           ]}
           android_ripple={{ color: 'grey' }}
         >
-          <Text style={styles.buttonText}>Chat with Us</Text>
+          <Text style={styles.buttonText}>Refresh</Text>
         </Pressable>
       </View>
     </SafeAreaView>
@@ -65,9 +66,16 @@ const HelpScene: React.FC<Props> = () => {
 
 const styles = StyleSheet.create({
   image: {
-    paddingHorizontal: 16,
-    width: undefined,
-    height: 320,
+    width: '100%',
+    height: 400,
+  },
+  imageBox: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    padding: 25,
+    marginLeft: 5,
+    marginRight: 5,
   },
   title: {
     fontSize: 20,
@@ -80,6 +88,19 @@ const styles = StyleSheet.create({
     fontFamily: 'WorkSans-Regular',
     textAlign: 'center',
     paddingTop: 16,
+  },
+  cardView: {
+    width: deviceWidth - 32,
+    height: deviceHeight - 350,
+    alignSelf: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    borderRadius: 10,
+    padding: 25,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: '10%',
+    backgroundColor: 'white',
   },
   button: {
     width: 140,

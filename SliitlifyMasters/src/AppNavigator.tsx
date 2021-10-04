@@ -21,11 +21,14 @@ import QRScene from './QrScene';
 import LoginScene from './LoginScene';
 import ResultScene from './ResultScene';
 import ProfileScene from './ProfileScene';
+interface Props {
+  setUser: Function;
+}
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
-const DrawerNavigator: React.FC = () => {
+const DrawerNavigator: React.FC<Props> = () => {
   const window = useWindowDimensions();
   return (
     <Drawer.Navigator
@@ -49,13 +52,12 @@ const DrawerNavigator: React.FC = () => {
       <Drawer.Screen name="Feedback" component={FeedbackScene} />
       <Drawer.Screen name="Profile" component={ProfileScene} />
       <Drawer.Screen name="QR" component={QRScene} />
-      <Drawer.Screen name="Login" component={LoginScene} />
+      {/* //<Drawer.Screen name="Login" component={LoginScene} /> */}
       <Drawer.Screen name="Marks" component={ResultScene} />
     </Drawer.Navigator>
   );
 };
-
-export default () => {
+const AppNavigator: React.FC<Props> = (props) => {
   return (
     <>
       <StatusBar
@@ -125,3 +127,4 @@ const styles = StyleSheet.create({
     shadowRadius: 16.0,
   },
 });
+export default AppNavigator;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import {
   StyleSheet,
   View,
@@ -9,17 +9,36 @@ import {
   Pressable,
   Image,
   KeyboardAvoidingView,
+  Alert,
 } from 'react-native';
 import { AppImages } from '../res';
 import { TextInput } from 'react-native-gesture-handler';
 import Config from './Config';
 import { DrawerActions } from '@react-navigation/routers';
+import { readFirestoreUserId } from './api/userApi';
 
 interface Props {
-  icon: any;
+  setUser: Function;
+}
+interface Credentials {
+  username: string;
+  password: string;
 }
 
-const LoginScene: React.FC<Props> = () => {
+const LoginScene: React.FC<Props> = (props) => {
+  const [ms, onChangeMs] = React.useState('');
+  const [password, onChangePassword] = React.useState('');
+
+  const login = async () => {
+    const data = await readFirestoreUserId(ms);
+    if (data) {
+      props.setUser(data);
+    }
+    // if (data.name != null && data.NIC == password) {
+    //   Alert.alert('wade goda');
+    // }
+    // console.log(data.name);
+  };
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <KeyboardAvoidingView behavior="position">
@@ -37,14 +56,25 @@ const LoginScene: React.FC<Props> = () => {
 
         <Text style={styles.title}>Login to your Account</Text>
         <Text style={styles.subTitle}>Username</Text>
-        <TextInput style={styles.input} placeholder="Enter your MS Number" />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter your MS Number"
+          onChangeText={onChangeMs}
+          value={ms}
+        />
         <Text style={styles.subTitle}>Password</Text>
-        <TextInput style={styles.input} placeholder="Enter your NIC Number" />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter your NIC Number"
+          onChangeText={onChangePassword}
+          value={password}
+        />
         <Pressable
           style={({ pressed }) => [
             styles.button,
             { opacity: !Config.isAndroid && pressed ? 0.4 : 1 },
           ]}
+          onPress={() => login()}
           android_ripple={{ color: 'grey' }}
         >
           <Text style={styles.buttonText}>Login</Text>

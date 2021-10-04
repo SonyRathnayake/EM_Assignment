@@ -24,7 +24,7 @@ const AppImages = {
   design_course: require('./design_course/design_course.png'),
 
   sliitLogo: require('./assets/sliit.png'),
-  // timetable: require('./offline/Y1S2_EAD.PNG'),
+  timeTable: require('./offline/timetable.png'),
 };
 
 export { AppImages };
