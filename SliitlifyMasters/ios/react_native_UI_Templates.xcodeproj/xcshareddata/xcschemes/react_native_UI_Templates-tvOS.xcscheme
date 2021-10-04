@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "react_native_UI_Templates-tvOS.app"
-               BlueprintName = "react_native_UI_Templates-tvOS"
-               ReferencedContainer = "container:react_native_UI_Templates.xcodeproj">
+               BuildableName = "em_Assignment-tvOS.app"
+               BlueprintName = "em_Assignment-tvOS"
+               ReferencedContainer = "container:em_Assignment.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "react_native_UI_Templates-tvOSTests.xctest"
-               BlueprintName = "react_native_UI_Templates-tvOSTests"
-               ReferencedContainer = "container:react_native_UI_Templates.xcodeproj">
+               BuildableName = "em_Assignment-tvOSTests.xctest"
+               BlueprintName = "em_Assignment-tvOSTests"
+               ReferencedContainer = "container:em_Assignment.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "react_native_UI_Templates-tvOS.app"
-            BlueprintName = "react_native_UI_Templates-tvOS"
-            ReferencedContainer = "container:react_native_UI_Templates.xcodeproj">
+            BuildableName = "em_Assignment-tvOS.app"
+            BlueprintName = "em_Assignment-tvOS"
+            ReferencedContainer = "container:em_Assignment.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "react_native_UI_Templates-tvOS.app"
-            BlueprintName = "react_native_UI_Templates-tvOS"
-            ReferencedContainer = "container:react_native_UI_Templates.xcodeproj">
+            BuildableName = "em_Assignment-tvOS.app"
+            BlueprintName = "em_Assignment-tvOS"
+            ReferencedContainer = "container:em_Assignment.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

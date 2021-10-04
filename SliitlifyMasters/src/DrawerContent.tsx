@@ -19,6 +19,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AppImages } from '../res';
 import Config from './Config';
 import { showToast } from './util/action';
+import LoginScene from './LoginScene';
 
 interface DrawerItemProps {
   label: string;
@@ -185,6 +186,7 @@ const DrawerContent: React.FC<
         ]}
         onPress={() => props.navigation.navigate('Login')}
         onPressOut={() => showToast('Signed out successfully')}
+        //onPressOut={() => }
         android_ripple={{ color: 'lightgrey' }}
       >
         <Text
@@ -247,7 +249,6 @@ const styles = StyleSheet.create({
   divider: {
     backgroundColor: 'darkgrey',
     height: StyleSheet.hairlineWidth,
-    // opacity: 0.6,
   },
   signOutBtnStyle: {
     flexDirection: 'row',

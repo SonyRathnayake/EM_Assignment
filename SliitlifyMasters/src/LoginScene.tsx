@@ -10,12 +10,10 @@ import {
   Image,
   KeyboardAvoidingView,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { DrawerNavigationProp } from '@react-navigation/drawer';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AppImages } from '../res';
 import { TextInput } from 'react-native-gesture-handler';
 import Config from './Config';
+import { DrawerActions } from '@react-navigation/routers';
 
 interface Props {
   icon: any;

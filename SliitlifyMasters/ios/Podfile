@@ -3,14 +3,14 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'react_native_UI_Templates' do
+target 'em_Assignment' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
   pod 'react-native-webview', :path => '../node_modules/react-native-webview'
 
-  target 'react_native_UI_TemplatesTests' do
+  target 'em_AssignmentTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -25,10 +25,10 @@ target 'react_native_UI_Templates' do
   end
 end
 
-target 'react_native_UI_Templates-tvOS' do
-  # Pods for react_native_UI_Templates-tvOS
+target 'em_Assignment-tvOS' do
+  # Pods for em_Assignment-tvOS
 
-  target 'react_native_UI_Templates-tvOSTests' do
+  target 'em_Assignment-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

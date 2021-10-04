@@ -31,6 +31,8 @@ const DrawerNavigator: React.FC = () => {
     <Drawer.Navigator
       drawerContentOptions={{ activeBackgroundColor: '#5cbbff' }}
       drawerContent={(props) => <DrawerContent {...props} />}
+      //drawerContent={(props) => <React.Fragment />}
+      //disable
       drawerType="back"
       overlayColor="transparent"
       drawerStyle={{
@@ -39,6 +41,8 @@ const DrawerNavigator: React.FC = () => {
       }}
       sceneContainerStyle={styles.drawerSceneContainer}
       edgeWidth={window.width}
+
+      //edgeWidth={-100}
     >
       <Drawer.Screen name="Home" component={HomeScene} />
       <Drawer.Screen name="Help" component={HelpScene} />
