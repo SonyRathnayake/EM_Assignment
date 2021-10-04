@@ -15,12 +15,13 @@ import { DrawerNavigationProp } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AppImages } from '../res';
 import Config from './Config';
+import { handleDownload } from './components/pdf/getPDF';
 const deviceWidth = Dimensions.get('screen').width;
 const deviceHeight = Dimensions.get('screen').height;
 
 interface Props {}
 
-const HelpScene: React.FC<Props> = () => {
+const Timetable: React.FC<Props> = () => {
   const navigation = useNavigation<DrawerNavigationProp<{}>>();
 
   const marginTop = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
@@ -41,14 +42,20 @@ const HelpScene: React.FC<Props> = () => {
           <Icon name="menu" size={25} color="black" />
         </Pressable>
       </View>
-      <View style={styles.imageBox}>
+      <Text style={styles.title}>Your Current Timetable</Text>
+      <View style={styles.cardView}>
         <Image
-          style={styles.image}
+          style={{
+            width: '100%',
+            height: undefined,
+            aspectRatio: 1,
+          }}
+          //https://firebasestorage.googleapis.com/v0/b/emassignment-236c8.appspot.com/o/Y1S1_EAD.PNG?alt=media&token=5c499dbc-b454-404e-a107-2ca86b290170
           source={AppImages.timeTable}
           resizeMode="cover"
         />
       </View>
-      <Text style={styles.title}>Your Current Timetable</Text>
+
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Pressable
           style={({ pressed }) => [
@@ -56,8 +63,14 @@ const HelpScene: React.FC<Props> = () => {
             { opacity: !Config.isAndroid && pressed ? 0.4 : 1 },
           ]}
           android_ripple={{ color: 'grey' }}
+          onPress={() => {
+            handleDownload(
+              'https://firebasestorage.googleapis.com/v0/b/emassignment-236c8.appspot.com/o/EAD-Y1S1.pdf?alt=media&token=af82573d-6197-4038-8534-8f51ea5f1ca7',
+              'EAD-Y1S1.pdf',
+            );
+          }}
         >
-          <Text style={styles.buttonText}>Refresh</Text>
+          <Text style={styles.buttonText}>Download</Text>
         </Pressable>
       </View>
     </SafeAreaView>
@@ -65,10 +78,6 @@ const HelpScene: React.FC<Props> = () => {
 };
 
 const styles = StyleSheet.create({
-  image: {
-    width: '100%',
-    height: 400,
-  },
   imageBox: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -91,15 +100,15 @@ const styles = StyleSheet.create({
   },
   cardView: {
     width: deviceWidth - 32,
-    height: deviceHeight - 350,
+    height: deviceHeight - 250,
     alignSelf: 'center',
     justifyContent: 'flex-start',
     alignItems: 'center',
     borderRadius: 10,
     padding: 25,
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: '10%',
+    marginLeft: 1,
+    marginRight: 1,
+    marginTop: '3%',
     backgroundColor: 'white',
   },
   button: {
@@ -119,4 +128,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HelpScene;
+export default Timetable;

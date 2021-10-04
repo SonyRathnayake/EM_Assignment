@@ -22,9 +22,9 @@ interface Props {}
 const deviceWidth = Dimensions.get('screen').width;
 const deviceHeight = Dimensions.get('screen').height;
 const mSno = 'LM3436436';
-const InviteFriendScene: React.FC<Props> = () => {
+const ProfileScene: React.FC<Props> = () => {
   const navigation = useNavigation<DrawerNavigationProp<{}>>();
-
+  //const data = await readFirestoreUserId(ms);
   const marginTop = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
   return (
     <SafeAreaView style={{ flex: 1, marginTop }}>
@@ -138,4 +138,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InviteFriendScene;
+export default ProfileScene;

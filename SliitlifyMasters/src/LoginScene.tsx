@@ -16,6 +16,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import Config from './Config';
 import { DrawerActions } from '@react-navigation/routers';
 import { readFirestoreUserId } from './api/userApi';
+import { showToast } from './util/action';
 
 interface Props {
   setUser: Function;
@@ -31,13 +32,12 @@ const LoginScene: React.FC<Props> = (props) => {
 
   const login = async () => {
     const data = await readFirestoreUserId(ms);
-    if (data) {
+    if (data.name != null && data.NIC == password) {
       props.setUser(data);
+      showToast('Welcome back ' + data.name + '!');
+    } else {
+      showToast('Invalid Username/Password!');
     }
-    // if (data.name != null && data.NIC == password) {
-    //   Alert.alert('wade goda');
-    // }
-    // console.log(data.name);
   };
   return (
     <SafeAreaView style={{ flex: 1 }}>

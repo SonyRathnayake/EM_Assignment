@@ -13,7 +13,7 @@ import { HotelHomeScreen } from './hotel_booking';
 import {
   HomeScene,
   DrawerContent,
-  HelpScene,
+  Timetable,
   FeedbackScene,
   InviteFriendScene,
 } from '.';
@@ -48,7 +48,7 @@ const DrawerNavigator: React.FC<Props> = () => {
       //edgeWidth={-100}
     >
       <Drawer.Screen name="Home" component={HomeScene} />
-      <Drawer.Screen name="Help" component={HelpScene} />
+      <Drawer.Screen name="Help" component={Timetable} />
       <Drawer.Screen name="Feedback" component={FeedbackScene} />
       <Drawer.Screen name="Profile" component={ProfileScene} />
       <Drawer.Screen name="QR" component={QRScene} />
