@@ -7,7 +7,10 @@ const userApiUrl = {
 
 const readFirestoreUserId = async (userUid) => {
   try {
-    const { data } = await axios.get(`${userApiUrl.readUserId}${userUid}`);
+    const { data } = await axios.get(`${userApiUrl.readUserId}${userUid}`).then(
+      
+    );
+    console.log(data);
     return data;
   } catch (error) {
     console.log('readFirestoreUserId-->', error);

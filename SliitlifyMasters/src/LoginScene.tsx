@@ -14,9 +14,10 @@ import {
 import { AppImages } from '../res';
 import { TextInput } from 'react-native-gesture-handler';
 import Config from './Config';
-import { DrawerActions } from '@react-navigation/routers';
 import { readFirestoreUserId } from './api/userApi';
 import { showToast } from './util/action';
+import useName from './hooks/useName';
+import useID from './hooks/useID';
 
 interface Props {
   setUser: Function;
@@ -29,15 +30,19 @@ interface Credentials {
 const LoginScene: React.FC<Props> = (props) => {
   const [ms, onChangeMs] = React.useState('');
   const [password, onChangePassword] = React.useState('');
+  const { setName } = useName();
+  const { setMsNo } = useID();
 
   const login = async () => {
-    // const data = await readFirestoreUserId(ms);
-    //if (data.name != null && data.NIC == password) {
-      props.setUser(ms);
-    //  showToast('Welcome back ' + data.name + '!');
-   // } else {
-   //   showToast('Invalid Username/Password!');
-   // }
+    const data = await readFirestoreUserId(ms);
+    if (data.name != null && data.NIC == password) {
+      props.setUser(data);
+      setName(data.name);
+      setMsNo(ms);
+      showToast('Welcome back ' + data.name + '!');
+    } else {
+      showToast('Invalid Username/Password!');
+    }
   };
   return (
     <SafeAreaView style={{ flex: 1 }}>

@@ -16,6 +16,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AppImages } from '../res';
 import Config from './Config';
 import { handleDownload } from './components/pdf/getPDF';
+import { showToast } from './util/action';
 const deviceWidth = Dimensions.get('screen').width;
 const deviceHeight = Dimensions.get('screen').height;
 
@@ -63,11 +64,13 @@ const Timetable: React.FC<Props> = () => {
             { opacity: !Config.isAndroid && pressed ? 0.4 : 1 },
           ]}
           android_ripple={{ color: 'grey' }}
-          onPress={() => {
+          onLongPress={() => {
             handleDownload(
-              'https://static.iclei.org/ddb/blobs/cwn/activity/file_1/3/3208cc85a70d01442957118fe796ab0ed30e01d1e3f33b2d7a6d6310-60.pdf',
-              //'https://firebasestorage.googleapis.com/v0/b/emassignment-236c8.appspot.com/o/EAD-Y1S1.pdf?alt=media&token=af82573d-6197-4038-8534-8f51ea5f1ca7',
+              'https://firebasestorage.googleapis.com/v0/b/emassignment-236c8.appspot.com/o/EAD-Y1S1.pdf?alt=media&token=af82573d-6197-4038-8534-8f51ea5f1ca7',
             );
+          }}
+          onPress={() => {
+            showToast('Starting download...');
           }}
         >
           <Text style={styles.buttonText}>Download</Text>

@@ -19,7 +19,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AppImages } from '../res';
 import Config from './Config';
 import { showToast } from './util/action';
-import LoginScene from './LoginScene';
+import useName from './hooks/useName';
+import useID from './hooks/useID';
 
 interface DrawerItemProps {
   label: string;
@@ -92,6 +93,8 @@ const DrawerContent: React.FC<
   DrawerContentComponentProps<DrawerContentOptions>
 > = (props) => {
   const window = useWindowDimensions();
+  const { name } = useName();
+  const { msNo } = useID();
   const rowWidth = (window.width * 0.75 * 80) / 100;
   const rotate = Animated.interpolate(props.progress, {
     inputRange: [0, 1],
@@ -124,7 +127,8 @@ const DrawerContent: React.FC<
             source={AppImages.userImage}
           />
         </Animated.View>
-        <Text style={styles.userName}>Sonal Ravindu</Text>
+        <Text style={styles.userName}>{name}</Text>
+        <Text style={styles.userID}>{msNo}</Text>
       </View>
       <View style={styles.divider} />
       <DrawerContentScrollView
@@ -205,6 +209,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'grey',
     fontFamily: 'WorkSans-SemiBold',
+    paddingTop: 4,
+  },
+  userID: {
+    fontSize: 18,
+    color: 'grey',
+    fontFamily: 'WorkSans',
     paddingTop: 4,
   },
   drawerRowStyle: {

@@ -28,7 +28,7 @@ interface Props {
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
-const DrawerNavigator: React.FC<Props> = () => {
+const DrawerNavigator: React.FC = () => {
   const window = useWindowDimensions();
   return (
     <Drawer.Navigator
