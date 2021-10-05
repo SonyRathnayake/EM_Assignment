@@ -65,8 +65,8 @@ const Timetable: React.FC<Props> = () => {
           android_ripple={{ color: 'grey' }}
           onPress={() => {
             handleDownload(
-              'https://firebasestorage.googleapis.com/v0/b/emassignment-236c8.appspot.com/o/EAD-Y1S1.pdf?alt=media&token=af82573d-6197-4038-8534-8f51ea5f1ca7',
-              'EAD-Y1S1.pdf',
+              'https://static.iclei.org/ddb/blobs/cwn/activity/file_1/3/3208cc85a70d01442957118fe796ab0ed30e01d1e3f33b2d7a6d6310-60.pdf',
+              //'https://firebasestorage.googleapis.com/v0/b/emassignment-236c8.appspot.com/o/EAD-Y1S1.pdf?alt=media&token=af82573d-6197-4038-8534-8f51ea5f1ca7',
             );
           }}
         >

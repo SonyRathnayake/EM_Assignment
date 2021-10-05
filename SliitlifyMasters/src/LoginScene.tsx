@@ -31,13 +31,13 @@ const LoginScene: React.FC<Props> = (props) => {
   const [password, onChangePassword] = React.useState('');
 
   const login = async () => {
-    const data = await readFirestoreUserId(ms);
-    if (data.name != null && data.NIC == password) {
-      props.setUser(data);
-      showToast('Welcome back ' + data.name + '!');
-    } else {
-      showToast('Invalid Username/Password!');
-    }
+    // const data = await readFirestoreUserId(ms);
+    //if (data.name != null && data.NIC == password) {
+      props.setUser(ms);
+    //  showToast('Welcome back ' + data.name + '!');
+   // } else {
+   //   showToast('Invalid Username/Password!');
+   // }
   };
   return (
     <SafeAreaView style={{ flex: 1 }}>

@@ -17,14 +17,30 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AppImages } from '../res';
 import Config from './Config';
 import { readFirestoreUserId } from './api/userApi';
+import { useEffect } from 'react';
 
 interface Props {}
 const deviceWidth = Dimensions.get('screen').width;
 const deviceHeight = Dimensions.get('screen').height;
 const mSno = 'LM3436436';
 const ProfileScene: React.FC<Props> = () => {
+  const [userdata, setUserdata] = React.useState({
+    name: '',
+    semester: '',
+    year: '',
+    cGPA: '',
+    NIC: '',
+    masterProgramme: '',
+  });
   const navigation = useNavigation<DrawerNavigationProp<{}>>();
-  //const data = await readFirestoreUserId(ms);
+  //{semester, year , cGPA, NIC, masterProgramme}
+  const fetchData = async () => {
+    const data = await readFirestoreUserId('sonal');
+    setUserdata(data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   const marginTop = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
   return (
     <SafeAreaView style={{ flex: 1, marginTop }}>
@@ -50,7 +66,7 @@ const ProfileScene: React.FC<Props> = () => {
           source={AppImages.userImage}
         />
 
-        <Text style={styles.title}>Sonal Rathnayake</Text>
+        <Text style={styles.title}>{userdata.name}</Text>
         <Text style={styles.subTitle}>ms21911958@mysliit.lk</Text>
       </View>
       <View style={styles.cardView}>
@@ -58,15 +74,18 @@ const ProfileScene: React.FC<Props> = () => {
         <Text style={styles.subTitle}>MS21911958</Text>
         <Text />
         <Text style={styles.title}>Masters Programme</Text>
-        <Text style={styles.subTitle}>
-          MSc. Enterprise Application Developments
-        </Text>
+        <Text style={styles.subTitle}>{userdata.masterProgramme}</Text>
         <Text />
         <Text style={styles.title}>Cumulative GPA</Text>
-        <Text style={styles.subTitle}>3.6</Text>
+        <Text style={styles.subTitle}>
+          {userdata.cGPA ? userdata.cGPA : 'GPA not updated'}
+        </Text>
         <Text />
         <Text style={styles.title}>Current Year / Current Semester</Text>
-        <Text style={styles.subTitle}>1/2</Text>
+        <Text style={styles.subTitle}>
+          Year {userdata.year ? userdata.year : 1} / Semester{' '}
+          {userdata.semester ? userdata.semester : 1}
+        </Text>
       </View>
     </SafeAreaView>
   );
