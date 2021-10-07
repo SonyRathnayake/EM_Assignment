@@ -48,7 +48,7 @@ const FeedbackScene: React.FC<Props> = () => {
         />
         <Text style={styles.title}>Your FeedBack</Text>
         <Text style={styles.subTitle}>
-          Give your best time for this moment.
+          Your feedback will be fowarded to SLIIT Lecturers
         </Text>
         <TextInput style={styles.input} placeholder="Enter your feedback..." />
         <Pressable

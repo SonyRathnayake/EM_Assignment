@@ -21,6 +21,8 @@ import QRScene from './QrScene';
 import LoginScene from './LoginScene';
 import ResultScene from './ResultScene';
 import ProfileScene from './ProfileScene';
+import FilterModal from './hotel_booking/FiltersModal';
+import AttendanceScene from './AttendanceScene';
 interface Props {
   setUser: Function;
 }
@@ -52,7 +54,8 @@ const DrawerNavigator: React.FC = () => {
       <Drawer.Screen name="Feedback" component={FeedbackScene} />
       <Drawer.Screen name="Profile" component={ProfileScene} />
       <Drawer.Screen name="QR" component={QRScene} />
-      {/* //<Drawer.Screen name="Login" component={LoginScene} /> */}
+      <Drawer.Screen name="View" component={HotelHomeScreen} />
+      <Drawer.Screen name="Attendance" component={AttendanceScene} />
       <Drawer.Screen name="Marks" component={ResultScene} />
     </Drawer.Navigator>
   );

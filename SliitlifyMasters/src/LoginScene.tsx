@@ -32,8 +32,12 @@ const LoginScene: React.FC<Props> = (props) => {
   const [password, onChangePassword] = React.useState('');
   const { setName } = useName();
   const { setMsNo } = useID();
+  //const { setUser } = useUser();
 
   const login = async () => {
+    // props.setUser(ms);
+    // setName(ms);
+    // setMsNo(ms);
     const data = await readFirestoreUserId(ms);
     if (data.name != null && data.NIC == password) {
       props.setUser(data);
@@ -73,6 +77,7 @@ const LoginScene: React.FC<Props> = (props) => {
           placeholder="Enter your NIC Number"
           onChangeText={onChangePassword}
           value={password}
+          secureTextEntry
         />
         <Pressable
           style={({ pressed }) => [

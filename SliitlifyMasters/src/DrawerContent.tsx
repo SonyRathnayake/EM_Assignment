@@ -149,7 +149,7 @@ const DrawerContent: React.FC<
           onpress={() => props.navigation.navigate('Help')}
         />
         <DrawerItemRow
-          label="Feedback"
+          label="Feedback "
           icon="help"
           {...{ ...props, translateX }}
           onpress={() => props.navigation.navigate('Feedback')}
@@ -172,7 +172,14 @@ const DrawerContent: React.FC<
           icon={AppImages.view_icon}
           isAssetIcon
           {...{ ...props, translateX }}
-          onpress={() => props.navigation.dispatch(DrawerActions.closeDrawer())}
+          onpress={() => props.navigation.navigate('Attendance')}
+        />
+        <DrawerItemRow
+          label="View 360 Classrooms"
+          icon={AppImages.view_icon}
+          isAssetIcon
+          {...{ ...props, translateX }}
+          onpress={() => props.navigation.navigate('View')}
         />
         <DrawerItemRow
           label="Sliit Portal"

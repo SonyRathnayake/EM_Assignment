@@ -14,36 +14,10 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useHeaderHeight } from '@react-navigation/stack';
-import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { AppImages } from '../res';
-import { showToast } from './util/action';
 import Config from './Config';
 import { WebView } from 'react-native-webview';
 interface Props {}
-
-const DEMOS = [
-  {
-    name: 'hotel',
-    background: AppImages.hotel_booking,
-    screenName: 'Hotel',
-  },
-  {
-    name: 'fitness_app',
-    background: AppImages.fitness_app,
-    screenName: '',
-  },
-  {
-    name: 'design_course',
-    background: AppImages.design_course,
-    screenName: '',
-  },
-  {
-    name: '',
-    background: undefined,
-    screenName: '',
-  },
-];
 
 interface ListItemProps {
   data: ListRenderItemInfo<{ name: string; background: any }>;
@@ -115,11 +89,18 @@ const HomeScene: React.FC<Props> = () => {
   const headerHeight = useHeaderHeight();
   const navigation = useNavigation<any>();
   const [isGrid, setGrid] = useState(true);
+  const [isToggle, setIsToggle] = React.useState(false);
 
   const marginTop = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
   const INJECTEDJAVASCRIPT = "document.body.style.userSelect = 'none'";
   return (
-    <SafeAreaView style={{ flex: 1, marginTop }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        marginTop,
+        backgroundColor: `${isToggle ? 'grey' : 'white'}`,
+      }}
+    >
       <View style={{ flexDirection: 'row', padding: 8 }}>
         <Pressable
           style={({ pressed }) => [
@@ -130,16 +111,21 @@ const HomeScene: React.FC<Props> = () => {
         >
           <Icon name="menu" size={25} color="black" />
         </Pressable>
-        <Text style={styles.headerText}>Sliitlify Masters</Text>
+        <Text style={isToggle ? styles.headerText2 : styles.headerText}>
+          Sliitlify Masters
+        </Text>
         <Pressable
           style={({ pressed }) => [
             { padding: 8, opacity: !Config.isAndroid && pressed ? 0.6 : 1 },
           ]}
-          onPress={() => setGrid(!isGrid)}
+          onPress={() => {
+            setGrid(!isGrid);
+            setIsToggle(!isToggle);
+          }}
           android_ripple={{ color: 'grey', radius: 20, borderless: true }}
         >
           <Icon
-            name={isGrid ? 'dashboard' : 'view-agenda'}
+            name={isGrid ? 'help' : 'favorite-border'}
             size={25}
             color="black"
           />
@@ -182,6 +168,15 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontFamily: 'WorkSans-Bold',
     textAlign: 'center',
+    color: 'black',
+    textAlignVertical: 'center',
+  },
+  headerText2: {
+    flex: 1,
+    fontSize: 22,
+    fontFamily: 'WorkSans-Bold',
+    textAlign: 'center',
+    color: 'white',
     textAlignVertical: 'center',
   },
 });

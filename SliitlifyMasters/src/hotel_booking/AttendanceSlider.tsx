@@ -2,11 +2,17 @@ import { Slider } from '@miblanchard/react-native-slider';
 import React, { useState } from 'react';
 import { StyleSheet, Text } from 'react-native';
 
-interface Props {}
+interface Props {
+  total: number;
+  attended: number;
+}
 
-const SliderView: React.FC<Props> = () => {
-  const [distValue, setDistValue] = useState(50.0);
+const AttendanceSlider: React.FC<Props> = (props) => {
+  const attended = props.attended;
+  const tot = props.total;
+  const barValue = attended == 0 ? 0 : (attended / tot) * 100;
 
+  const [distValue, setDistValue] = useState(barValue);
   return (
     <Slider
       containerStyle={{ marginHorizontal: 16, marginBottom: 12 }}
@@ -17,7 +23,8 @@ const SliderView: React.FC<Props> = () => {
       //     <View style={styles.thumbStyle} />
       //   </View>
       // )}
-      value={5}
+      disabled
+      value={distValue}
       step={1}
       minimumValue={0}
       maximumValue={100}
@@ -29,7 +36,7 @@ const SliderView: React.FC<Props> = () => {
       animationType="spring"
       renderAboveThumbComponent={() => (
         <Text style={[styles.thumbText, { right: distValue }]}>
-          Less than {(distValue / 10).toFixed(1)} km
+          Attended {(attended / tot) * 100}%
         </Text>
       )}
     />
@@ -56,4 +63,4 @@ const styles = StyleSheet.create({
   thumbText: { width: 170, textAlign: 'center' },
 });
 
-export default SliderView;
+export default AttendanceSlider;

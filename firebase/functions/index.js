@@ -101,8 +101,13 @@ app.post("/api/attendance/create", (req, res) => {
         .collection("attendance")
         .doc("/" + req.body.msNo + "/")
         .create({
-          msNo: req.body.msNo,
-          module: req.body.module,
+          module1: req.body.module1,
+          module2: req.body.module2,
+          module3: req.body.module3,
+          module4: req.body.module4,
+          module5: req.body.module5,
+          module6: req.body.module6,
+          optional: req.body.optional,
           attended: req.body.attended,
           total: req.body.total,
         });

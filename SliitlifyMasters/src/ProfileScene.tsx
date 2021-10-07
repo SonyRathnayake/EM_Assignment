@@ -18,11 +18,12 @@ import { AppImages } from '../res';
 import Config from './Config';
 import { readFirestoreUserId } from './api/userApi';
 import { useEffect } from 'react';
+import useID from './hooks/useID';
 
 interface Props {}
 const deviceWidth = Dimensions.get('screen').width;
 const deviceHeight = Dimensions.get('screen').height;
-const mSno = 'LM3436436';
+
 const ProfileScene: React.FC<Props> = () => {
   const [userdata, setUserdata] = React.useState({
     name: '',
@@ -33,9 +34,10 @@ const ProfileScene: React.FC<Props> = () => {
     masterProgramme: '',
   });
   const navigation = useNavigation<DrawerNavigationProp<{}>>();
-  //{semester, year , cGPA, NIC, masterProgramme}
+  const { msNo } = useID();
   const fetchData = async () => {
-    const data = await readFirestoreUserId('sonal');
+    console.log(msNo);
+    const data = await readFirestoreUserId(msNo);
     setUserdata(data);
   };
   useEffect(() => {
@@ -67,11 +69,11 @@ const ProfileScene: React.FC<Props> = () => {
         />
 
         <Text style={styles.title}>{userdata.name}</Text>
-        <Text style={styles.subTitle}>ms21911958@mysliit.lk</Text>
+        <Text style={styles.subTitle}>{msNo}@mysliit.lk</Text>
       </View>
       <View style={styles.cardView}>
         <Text style={styles.title}>Student Number</Text>
-        <Text style={styles.subTitle}>MS21911958</Text>
+        <Text style={styles.subTitle}>{msNo}</Text>
         <Text />
         <Text style={styles.title}>Masters Programme</Text>
         <Text style={styles.subTitle}>{userdata.masterProgramme}</Text>
