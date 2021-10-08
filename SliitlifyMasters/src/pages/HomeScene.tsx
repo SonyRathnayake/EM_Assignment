@@ -13,7 +13,6 @@ import {
   Platform,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useHeaderHeight } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Config from '../config/Config';
 import { WebView } from 'react-native-webview';
