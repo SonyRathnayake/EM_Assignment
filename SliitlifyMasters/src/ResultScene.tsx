@@ -15,7 +15,6 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { AppImages } from '../res';
 import Config from './Config';
 import { WebView } from 'react-native-webview';
 interface Props {}
@@ -23,17 +22,17 @@ interface Props {}
 const DEMOS = [
   {
     name: 'hotel',
-    background: AppImages.hotel_booking,
+    // background: AppImages.hotel_booking,
     screenName: 'Hotel',
   },
   {
     name: 'fitness_app',
-    background: AppImages.fitness_app,
+    // background: AppImages.fitness_app,
     screenName: '',
   },
   {
     name: 'design_course',
-    background: AppImages.design_course,
+    //  background: AppImages.design_course,
     screenName: '',
   },
   {

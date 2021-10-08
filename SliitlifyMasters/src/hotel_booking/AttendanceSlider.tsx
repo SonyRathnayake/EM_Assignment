@@ -18,11 +18,6 @@ const AttendanceSlider: React.FC<Props> = (props) => {
       containerStyle={{ marginHorizontal: 16, marginBottom: 12 }}
       trackStyle={{ height: 6 }}
       thumbStyle={styles.thumbStyle}
-      // renderThumbComponent={() => (
-      //   <View style={styles.shadowBg}>
-      //     <View style={styles.thumbStyle} />
-      //   </View>
-      // )}
       disabled
       value={distValue}
       step={1}
@@ -51,7 +46,6 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'white',
     elevation: 8,
-    // backgroundColor: '#54D3C2',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

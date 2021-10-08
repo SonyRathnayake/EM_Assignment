@@ -9,13 +9,13 @@ import {
 } from 'react-native';
 import { Rating } from 'react-native-ratings';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { HotelListType } from './model/hotel_list_data';
+import { HotelListType } from './model/360_list_data';
 
 interface Props {
   data: ListRenderItemInfo<HotelListType>;
 }
 
-const HotelListItem: React.FC<Props> = ({ data }) => {
+const SliitListItem: React.FC<Props> = ({ data }) => {
   const { item, index } = data;
   const translateY = useRef<Animated.Value>(new Animated.Value(50)).current;
   const opacity = useRef<Animated.Value>(new Animated.Value(0)).current;
@@ -47,41 +47,18 @@ const HotelListItem: React.FC<Props> = ({ data }) => {
           source={item.imagePath}
           resizeMode="stretch"
         />
-        <Icon
-          style={{ position: 'absolute', right: 0, padding: 16 }}
-          name="favorite-border"
-          size={24}
-          color="#54D3C2"
-        />
       </View>
       <View style={{ padding: 8, paddingHorizontal: 16 }}>
         <View style={{ flex: 1, flexDirection: 'row' }}>
           <Text style={styles.title}>{item.titleTxt}</Text>
-          <Text style={{ fontSize: 22, fontFamily: 'WorkSans-SemiBold' }}>
-            ${item.perNight}
-          </Text>
         </View>
         <View style={{ flexDirection: 'row' }}>
           <Text style={styles.subText} numberOfLines={1}>
             {item.subTxt}
             <View style={{ width: 4 }} />
-            <Icon name="location-pin" size={12} color="#54D3C2" />
-            {item.dist.toPrecision(2)} km to city
           </Text>
-          <Text style={styles.perNightText}>/per night</Text>
         </View>
-        <View style={{ flexDirection: 'row' }}>
-          <Rating
-            type="custom"
-            ratingCount={5}
-            imageSize={16}
-            ratingColor="#54D3C2"
-            fractions={1}
-            startingValue={item.rating}
-            onFinishRating={() => {}}
-          />
-          <Text style={styles.review}>{item.reviews} Reviews</Text>
-        </View>
+        <View style={{ flexDirection: 'row' }}></View>
       </View>
     </Animated.View>
   );
@@ -125,4 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HotelListItem;
+export default SliitListItem;

@@ -9,7 +9,6 @@ import {
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { HotelHomeScreen } from './hotel_booking';
 import {
   HomeScene,
   DrawerContent,
@@ -18,11 +17,10 @@ import {
   InviteFriendScene,
 } from '.';
 import QRScene from './QrScene';
-import LoginScene from './LoginScene';
 import ResultScene from './ResultScene';
 import ProfileScene from './ProfileScene';
-import FilterModal from './hotel_booking/FiltersModal';
 import AttendanceScene from './AttendanceScene';
+import GuestView from './hotel_booking/GuestView';
 interface Props {
   setUser: Function;
 }
@@ -54,7 +52,7 @@ const DrawerNavigator: React.FC = () => {
       <Drawer.Screen name="Feedback" component={FeedbackScene} />
       <Drawer.Screen name="Profile" component={ProfileScene} />
       <Drawer.Screen name="QR" component={QRScene} />
-      <Drawer.Screen name="View" component={HotelHomeScreen} />
+      <Drawer.Screen name="View" component={GuestView} />
       <Drawer.Screen name="Attendance" component={AttendanceScene} />
       <Drawer.Screen name="Marks" component={ResultScene} />
     </Drawer.Navigator>
@@ -74,44 +72,6 @@ const AppNavigator: React.FC<Props> = (props) => {
           name="MainDrawer"
           component={DrawerNavigator}
           options={{ headerShown: false }}
-        />
-
-        <Stack.Screen
-          name="Hotel"
-          component={HotelHomeScreen}
-          options={{
-            headerShown: true,
-            headerTitle: 'Explore',
-            headerTitleAlign: 'center',
-            headerTitleStyle: { fontSize: 22, fontFamily: 'WorkSans-SemiBold' },
-            headerLeft: (props) => (
-              <Pressable
-                {...props}
-                style={{ padding: 8, marginLeft: 8 }}
-                android_ripple={{ color: 'grey', radius: 20, borderless: true }}
-              >
-                <Icon name="arrow-back" size={25} color="black" />
-              </Pressable>
-            ),
-            headerRight: () => {
-              return (
-                <View style={{ flexDirection: 'row' }}>
-                  <Icon
-                    style={{ paddingHorizontal: 8 }}
-                    name="favorite-border"
-                    size={25}
-                    color="black"
-                  />
-                  <Icon
-                    style={{ paddingHorizontal: 8 }}
-                    name="location-pin"
-                    size={25}
-                    color="black"
-                  />
-                </View>
-              );
-            },
-          }}
         />
       </Stack.Navigator>
     </>

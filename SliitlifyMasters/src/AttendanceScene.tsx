@@ -7,8 +7,6 @@ import {
   Platform,
   StatusBar,
   Pressable,
-  Image,
-  KeyboardAvoidingView,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
@@ -16,7 +14,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import useID from './hooks/useID';
 import Config from './Config';
 import { readAttendancebyId } from './api/userApi';
-import SliderView from './hotel_booking/SliderView';
 import AttendanceSlider from './hotel_booking/AttendanceSlider';
 
 interface Props {}
@@ -30,76 +27,75 @@ const FeedbackScene: React.FC<Props> = () => {
     module4: '',
     module5: '',
     module6: '',
+    modules: [],
     optional: '',
-    attended: '',
-    total: '',
+    attended: [],
+    total: [],
   });
-  const [attended, setAttended] = React.useState({});
   const navigation = useNavigation<DrawerNavigationProp<{}>>();
   const { msNo } = useID();
+
   const fetchData = async () => {
     const data = await readAttendancebyId(msNo);
     setAattendance(data);
-    setAttended(attendance.attended);
   };
   useEffect(() => {
     fetchData();
   }, []);
-  //const attended = attendance.attended.split(',');
-  const total = attendance.total.split(',');
 
   const marginTop = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
-  return (
-    <SafeAreaView style={{ flex: 1, marginTop }}>
-      <View style={{ flexDirection: 'row', padding: 8, paddingBottom: 0 }}>
-        <Pressable
-          style={({ pressed }) => [
-            {
-              padding: 8,
-              paddingBottom: 0,
-              opacity: !Config.isAndroid && pressed ? 0.4 : 1,
-            },
-          ]}
-          onPress={() => navigation.openDrawer()}
-          android_ripple={{ color: 'grey', radius: 20, borderless: true }}
-        >
-          <Icon name="menu" size={25} color="black" />
-        </Pressable>
-      </View>
-      <View>
-        <Text style={styles.title}>Attended Lecture Status</Text>
-        <Text
-          style={[styles2.sectionTitle, { paddingTop: 16, paddingBottom: 24 }]}
-        >
-          {attendance.module1}
-        </Text>
-
-        <AttendanceSlider total={10} attended={6} />
-        <Text
-          style={[styles2.sectionTitle, { paddingTop: 16, paddingBottom: 24 }]}
-        >
-          {attendance.module2}
-        </Text>
-
-        <AttendanceSlider total={10} attended={3} />
-        <Text
-          style={[styles2.sectionTitle, { paddingTop: 16, paddingBottom: 24 }]}
-        >
-          {attendance.module6}
-        </Text>
-
-        <AttendanceSlider total={10} attended={1} />
-        <Text style={[styles2.sectionTitle, { paddingBottom: 24 }]}>
-          {attendance.module4}
-        </Text>
-        <AttendanceSlider total={10} attended={9} />
-        <Text style={styles.Optiontitle}>Optional Modules</Text>
-        <Text style={[styles.subTitle]}>{attendance.optional}</Text>
-      </View>
-    </SafeAreaView>
-  );
+  if (attendance.total.length > 0 && attendance.attended.length > 0) {
+    return (
+      <SafeAreaView style={{ flex: 1, marginTop }}>
+        <View style={{ flexDirection: 'row', padding: 8, paddingBottom: 0 }}>
+          <Pressable
+            style={({ pressed }) => [
+              {
+                padding: 8,
+                paddingBottom: 0,
+                opacity: !Config.isAndroid && pressed ? 0.4 : 1,
+              },
+            ]}
+            onPress={() => navigation.openDrawer()}
+            android_ripple={{ color: 'grey', radius: 20, borderless: true }}
+          >
+            <Icon name="menu" size={25} color="black" />
+          </Pressable>
+        </View>
+        <View>
+          <Text style={styles.title}>Attended Lecture Status</Text>
+          <Text></Text>
+          {attendance.total.map((item, index) => {
+            return (
+              <React.Fragment key={index}>
+                <Text style={[styles2.sectionTitle]}>
+                  {attendance.modules[index]}
+                </Text>
+                <Text style={[styles.subTitle, { paddingBottom: 26 }]}>
+                  {item - attendance.attended[index]} Lectures Remaining
+                </Text>
+                <AttendanceSlider
+                  total={item}
+                  attended={attendance.attended[index]}
+                />
+              </React.Fragment>
+            );
+          })}
+          <Text style={styles.Optiontitle}>Optional Modules</Text>
+          <Text style={[styles.OptionalTitle]}>{attendance.optional}</Text>
+        </View>
+      </SafeAreaView>
+    );
+  } else {
+    return (
+      <SafeAreaView>
+        <View style={{ flexDirection: 'row', padding: 8, paddingBottom: 0 }}>
+          <Text style={styles.Loading}> Loading... </Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
 };
-
 const styles = StyleSheet.create({
   image: {
     paddingHorizontal: 16,
@@ -119,10 +115,28 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     paddingBottom: 8,
   },
+  Loading: {
+    fontSize: 16,
+    fontFamily: 'WorkSans-Bold',
+    color: 'black',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 150,
+    marginTop: 200,
+  },
   subTitle: {
+    fontSize: 12,
+    fontFamily: 'WorkSans-Regular',
+    color: 'black',
+    paddingHorizontal: 16,
+  },
+  OptionalTitle: {
     fontSize: 16,
     fontFamily: 'WorkSans-Regular',
-    textAlign: 'center',
+    color: 'grey',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 16,
   },
   input: {
     marginTop: 16,

@@ -124,7 +124,14 @@ const DrawerContent: React.FC<
               styles.drawerAvatarStyle,
               { transform: [{ rotate, scale }] },
             ]}
-            source={AppImages.userImage}
+            source={
+              name
+                ? {
+                    uri: 'https://firebasestorage.googleapis.com/v0/b/emassignment-236c8.appspot.com/o/user1.png?alt=media&token=c6f1ba91-4b29-4aaf-b0ec-905982df66ee',
+                  }
+                : AppImages.userImage
+            }
+            // source={AppImages.userImage}
           />
         </Animated.View>
         <Text style={styles.userName}>{name}</Text>

@@ -141,5 +141,3 @@ const styles = StyleSheet.create({
     shadowRadius: 7.49,
   },
 });
-
-export default RangeSliderView;
