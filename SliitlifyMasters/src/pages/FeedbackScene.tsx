@@ -13,9 +13,9 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { AppImages } from '../res';
+import { AppImages } from '../../res';
 import { TextInput } from 'react-native-gesture-handler';
-import Config from './Config';
+import Config from '../config/Config';
 
 interface Props {}
 

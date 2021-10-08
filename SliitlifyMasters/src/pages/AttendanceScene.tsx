@@ -11,10 +11,10 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import useID from './hooks/useID';
-import Config from './Config';
-import { readAttendancebyId } from './api/userApi';
-import AttendanceSlider from './hotel_booking/AttendanceSlider';
+import useID from '../hooks/useID';
+import Config from '../config/Config';
+import { readAttendancebyId } from '../api/userApi';
+import AttendanceSlider from '../components/attendance/AttendanceSlider';
 
 interface Props {}
 

@@ -13,10 +13,10 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { AppImages } from '../res';
-import Config from './Config';
-import { handleDownload } from './components/pdf/getPDF';
-import { showToast } from './util/action';
+import { AppImages } from '../../res';
+import Config from '../config/Config';
+import { handleDownload } from '../components/pdf/getPDF';
+import { showToast } from '../util/action';
 const deviceWidth = Dimensions.get('screen').width;
 const deviceHeight = Dimensions.get('screen').height;
 

@@ -15,7 +15,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Config from './Config';
+import Config from '../config/Config';
 import { WebView } from 'react-native-webview';
 interface Props {}
 

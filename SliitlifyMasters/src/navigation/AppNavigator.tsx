@@ -9,18 +9,13 @@ import {
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {
-  HomeScene,
-  DrawerContent,
-  Timetable,
-  FeedbackScene,
-  InviteFriendScene,
-} from '.';
-import QRScene from './QrScene';
-import ResultScene from './ResultScene';
-import ProfileScene from './ProfileScene';
-import AttendanceScene from './AttendanceScene';
-import GuestView from './hotel_booking/GuestView';
+
+import QRScene from '../pages/QrScene';
+import ResultScene from '../pages/ResultScene';
+import ProfileScene from '../pages/ProfileScene';
+import AttendanceScene from '../pages/AttendanceScene';
+import GuestView from '../components/guest/GuestView';
+import { HomeScene, DrawerContent, Timetable, FeedbackScene } from '../pages';
 interface Props {
   setUser: Function;
 }

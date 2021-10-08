@@ -11,13 +11,13 @@ import {
   KeyboardAvoidingView,
   Alert,
 } from 'react-native';
-import { AppImages } from '../res';
+import { AppImages } from '../../res';
 import { TextInput } from 'react-native-gesture-handler';
-import Config from './Config';
-import { readFirestoreUserId } from './api/userApi';
-import { showToast } from './util/action';
-import useName from './hooks/useName';
-import useID from './hooks/useID';
+import Config from '../config/Config';
+import { readFirestoreUserId } from '../api/userApi';
+import { showToast } from '../util/action';
+import useName from '../hooks/useName';
+import useID from '../hooks/useID';
 
 interface Props {
   setUser: Function;

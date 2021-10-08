@@ -12,8 +12,8 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Config from './Config';
-import Scan from './components/scanner/Scan';
+import Config from '../config/Config';
+import Scan from '../components/scanner/Scan';
 
 interface Props {}
 

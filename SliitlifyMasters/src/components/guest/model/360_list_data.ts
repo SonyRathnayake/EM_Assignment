@@ -1,13 +1,13 @@
-import { AppImages } from '../../../res';
+import { AppImages } from '../../../../res';
 
-export interface HotelListType {
+export interface Vicinities {
   id: number;
   imagePath: any;
   titleTxt: string;
   subTxt: string;
 }
 
-export const HOTEL_LIST: HotelListType[] = [
+export const SLIIT_LIST: Vicinities[] = [
   // 1st item dummy for 'stickyHeaderIndices'
   {
     id: 0,
@@ -17,25 +17,25 @@ export const HOTEL_LIST: HotelListType[] = [
   },
   {
     id: 1,
-    imagePath: AppImages.hotel_1,
+    imagePath: AppImages.auditorium,
     titleTxt: 'SLIIT Auditorium',
     subTxt: 'Students meet here for large gatherings',
   },
   {
     id: 2,
-    imagePath: AppImages.hotel_2,
+    imagePath: AppImages.lab,
     titleTxt: 'Engineering Research Labs',
     subTxt: 'Students meet here Engineering work',
   },
   {
     id: 3,
-    imagePath: AppImages.hotel_3,
+    imagePath: AppImages.parking,
     titleTxt: 'Parking Spaces',
     subTxt: 'Vehicle parking spaces for Students',
   },
   {
     id: 4,
-    imagePath: AppImages.hotel_4,
+    imagePath: AppImages.business,
     titleTxt: 'Business Faculty',
     subTxt: 'Business Faculty Vicinity',
   },

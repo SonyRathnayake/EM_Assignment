@@ -16,11 +16,11 @@ import {
 import { DrawerActions } from '@react-navigation/native';
 import Animated from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { AppImages } from '../res';
-import Config from './Config';
-import { showToast } from './util/action';
-import useName from './hooks/useName';
-import useID from './hooks/useID';
+import { showToast } from '../util/action';
+import useName from '../hooks/useName';
+import useID from '../hooks/useID';
+import { AppImages } from '../../res';
+import Config from '../config/Config';
 
 interface DrawerItemProps {
   label: string;

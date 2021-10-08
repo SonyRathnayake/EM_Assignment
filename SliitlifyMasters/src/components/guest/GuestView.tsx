@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import SliitListItem from './SliitListItem';
-import { HOTEL_LIST } from './model/360_list_data';
-import Config from '../Config';
+import { SLIIT_LIST } from './model/360_list_data';
+import Config from '../../config/Config';
 
 interface Props {}
 
@@ -20,7 +20,7 @@ const GuestView: React.FC<Props> = () => {
       <SafeAreaView style={{ flex: 1 }}>
         <FlatList
           contentContainerStyle={{ flexGrow: 1, backgroundColor: 'white' }}
-          data={HOTEL_LIST}
+          data={SLIIT_LIST}
           renderItem={(data) =>
             data.index > 0 ? (
               <SliitListItem {...{ data }} />

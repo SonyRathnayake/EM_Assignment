@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './AppNavigator';
-import Toast from './components/Toast';
-import { toastRef } from './util/action';
-import LoginScene from './LoginScene';
-import { NameProvider } from './context/NameContext';
-import { MsProvider } from './context/MSnoContext';
-import { UserProvider } from './context/UserContext';
+import Toast from '../components/Toast';
+import { toastRef } from '../util/action';
+import LoginScene from '../pages/LoginScene';
+import { NameProvider } from '../context/NameContext';
+import { MsProvider } from '../context/MSnoContext';
+import { UserProvider } from '../context/UserContext';
 const AppControlFlow: React.FC = () => {
   const [user, setUser] = React.useState(null);
   //const { user, setUser } = useUser(); //Madush

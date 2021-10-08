@@ -7,12 +7,10 @@ import {
   Animated,
   ListRenderItemInfo,
 } from 'react-native';
-import { Rating } from 'react-native-ratings';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import { HotelListType } from './model/360_list_data';
+import { Vicinities } from './model/360_list_data';
 
 interface Props {
-  data: ListRenderItemInfo<HotelListType>;
+  data: ListRenderItemInfo<Vicinities>;
 }
 
 const SliitListItem: React.FC<Props> = ({ data }) => {

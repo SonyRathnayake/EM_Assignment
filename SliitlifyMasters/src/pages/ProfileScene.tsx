@@ -14,11 +14,11 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { AppImages } from '../res';
-import Config from './Config';
-import { readFirestoreUserId } from './api/userApi';
+import { AppImages } from '../../res';
+import Config from '../config/Config';
+import { readFirestoreUserId } from '../api/userApi';
 import { useEffect } from 'react';
-import useID from './hooks/useID';
+import useID from '../hooks/useID';
 
 interface Props {}
 const deviceWidth = Dimensions.get('screen').width;
