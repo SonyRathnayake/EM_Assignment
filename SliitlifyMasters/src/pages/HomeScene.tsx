@@ -86,7 +86,6 @@ const ListItem: React.FC<ListItemProps> = ({
 };
 
 const HomeScene: React.FC<Props> = () => {
-  const headerHeight = useHeaderHeight();
   const navigation = useNavigation<any>();
   const [isGrid, setGrid] = useState(true);
   const [isToggle, setIsToggle] = React.useState(false);
@@ -125,7 +124,7 @@ const HomeScene: React.FC<Props> = () => {
           android_ripple={{ color: 'grey', radius: 20, borderless: true }}
         >
           <Icon
-            name={isGrid ? 'help' : 'favorite-border'}
+            name={isGrid ? 'wb-sunny' : 'nightlight-round'}
             size={25}
             color="black"
           />
@@ -136,28 +135,6 @@ const HomeScene: React.FC<Props> = () => {
         injectedJavaScript={INJECTEDJAVASCRIPT}
         style={{ flex: 1 }}
       />
-      {/* <FlatList
-        key={isGrid ? 'G' : 'L'}
-        style={{ marginTop: headerHeight, marginHorizontal: 6 }}
-        contentContainerStyle={{ flexGrow: 1 }}
-        data={DEMOS}
-        keyExtractor={(item) => item.name}
-        numColumns={isGrid ? 2 : 1}
-        renderItem={(data) => (
-          <ListItem
-            data={data}
-            isGrid={isGrid}
-            onScreenClicked={() => {
-              if (data.item.screenName) {
-                navigation.navigate(data.item.screenName);
-              } else {
-                showToast('Coming soon...');
-              }
-            }}
-          />
-        )}
-        showsVerticalScrollIndicator={false}
-      /> */}
     </SafeAreaView>
   );
 };

@@ -1,15 +1,11 @@
-import React, { Dispatch } from 'react';
+import React from 'react';
 import {
   StyleSheet,
-  View,
   Text,
   SafeAreaView,
-  Platform,
-  StatusBar,
   Pressable,
   Image,
   KeyboardAvoidingView,
-  Alert,
 } from 'react-native';
 import { AppImages } from '../../res';
 import { TextInput } from 'react-native-gesture-handler';
@@ -22,22 +18,13 @@ import useID from '../hooks/useID';
 interface Props {
   setUser: Function;
 }
-interface Credentials {
-  username: string;
-  password: string;
-}
 
 const LoginScene: React.FC<Props> = (props) => {
   const [ms, onChangeMs] = React.useState('');
   const [password, onChangePassword] = React.useState('');
   const { setName } = useName();
   const { setMsNo } = useID();
-  //const { setUser } = useUser();
-
   const login = async () => {
-    // props.setUser(ms);
-    // setName(ms);
-    // setMsNo(ms);
     const data = await readFirestoreUserId(ms);
     if (data.name != null && data.NIC == password) {
       props.setUser(data);

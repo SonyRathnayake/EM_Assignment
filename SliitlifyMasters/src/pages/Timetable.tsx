@@ -12,11 +12,11 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AppImages } from '../../res';
-import Config from '../config/Config';
 import { handleDownload } from '../components/pdf/getPDF';
 import { showToast } from '../util/action';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import Config from '../config/Config';
 const deviceWidth = Dimensions.get('screen').width;
 const deviceHeight = Dimensions.get('screen').height;
 
@@ -51,7 +51,6 @@ const Timetable: React.FC<Props> = () => {
             height: undefined,
             aspectRatio: 1,
           }}
-          //https://firebasestorage.googleapis.com/v0/b/emassignment-236c8.appspot.com/o/Y1S1_EAD.PNG?alt=media&token=5c499dbc-b454-404e-a107-2ca86b290170
           source={AppImages.timeTable}
           resizeMode="cover"
         />

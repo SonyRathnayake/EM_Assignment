@@ -41,7 +41,7 @@ export const SLIIT_LIST: Vicinities[] = [
   },
   {
     id: 5,
-    imagePath: AppImages.hotel_5,
+    imagePath: AppImages.computer,
     titleTxt: 'Computer Labs',
     subTxt: 'Computer Labs Vicinity',
   },

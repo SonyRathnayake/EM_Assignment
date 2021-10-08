@@ -19,7 +19,6 @@ interface Props {}
 
 const QRScene: React.FC<Props> = () => {
   const navigation = useNavigation<DrawerNavigationProp<{}>>();
-
   const marginTop = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
   return (
     <SafeAreaView style={{ flex: 1, marginTop }}>
@@ -67,23 +66,6 @@ const styles = StyleSheet.create({
     fontFamily: 'WorkSans-Regular',
     textAlign: 'center',
     paddingTop: 16,
-  },
-  button: {
-    flexDirection: 'row',
-    width: 140,
-    height: 40,
-    padding: 8,
-    backgroundColor: 'dodgerblue',
-    borderRadius: 4,
-    elevation: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: '500',
-    textAlign: 'center',
-    padding: 4,
   },
 });
 

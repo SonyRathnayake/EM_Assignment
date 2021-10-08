@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
     marginVertical: 12,
     marginHorizontal: 24,
     borderRadius: 16,
-    // overflow: 'hidden',
     elevation: 8,
     shadowColor: '#000',
     shadowOffset: {
@@ -92,11 +91,6 @@ const styles = StyleSheet.create({
     ...textStyle,
     flex: 1,
     paddingRight: 4,
-  },
-  perNightText: { ...textStyle },
-  review: {
-    ...textStyle,
-    marginLeft: 8,
   },
 });
 

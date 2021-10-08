@@ -6,10 +6,10 @@ import {
   View,
   Image,
   ImageBackground,
-  BackHandler,
 } from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import styles from './ScanStyle';
+import { AppImages } from '../../../res/index';
 class Scan extends Component {
   constructor(props) {
     super(props);
@@ -56,7 +56,7 @@ class Scan extends Component {
                 Please move your camera {'\n'} over the QR Code
               </Text>
               <Image
-                source={require('./../../../res/assets/qr_code.png')}
+                source={AppImages.qr_code}
                 style={{ margin: 20, height: 250, width: 250 }}
               ></Image>
               <TouchableOpacity
@@ -65,7 +65,7 @@ class Scan extends Component {
               >
                 <View style={styles.buttonWrapper}>
                   <Image
-                    source={require('./../../../res/assets/ic_camera_alt.png')}
+                    source={AppImages.qr_camera}
                     style={{ height: 36, width: 36 }}
                   ></Image>
                   <Text style={{ ...styles.buttonTextStyle, color: '#2196f3' }}>
@@ -88,7 +88,7 @@ class Scan extends Component {
                 >
                   <View style={styles.buttonWrapper}>
                     <Image
-                      source={require('./../../../res/assets/ic_camera_alt.png')}
+                      source={AppImages.qr_camera}
                       style={{ height: 36, width: 36 }}
                     ></Image>
                     <Text
@@ -118,7 +118,7 @@ class Scan extends Component {
                       onLongPress={() => this.setState({ scan: false })}
                     >
                       <Image
-                        source={require('./../../../res/assets/sliit.png')}
+                        source={AppImages.sliitLogo}
                         style={{
                           marginTop: -450,
                           marginHorizontal: 20,
@@ -127,7 +127,7 @@ class Scan extends Component {
                         }}
                       ></Image>
                       <Image
-                        source={require('./../../../res/assets/yellow.png')}
+                        source={AppImages.qr_camera_yellow}
                         style={{ marginTop: 320, marginHorizontal: -10 }}
                       ></Image>
                     </TouchableOpacity>

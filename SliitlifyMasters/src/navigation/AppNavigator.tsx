@@ -1,14 +1,7 @@
 import React from 'react';
-import {
-  Pressable,
-  StatusBar,
-  StyleSheet,
-  useWindowDimensions,
-  View,
-} from 'react-native';
+import { StatusBar, StyleSheet, useWindowDimensions } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import QRScene from '../pages/QrScene';
 import ResultScene from '../pages/ResultScene';
@@ -22,15 +15,12 @@ interface Props {
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
-
 const DrawerNavigator: React.FC = () => {
   const window = useWindowDimensions();
   return (
     <Drawer.Navigator
       drawerContentOptions={{ activeBackgroundColor: '#5cbbff' }}
       drawerContent={(props) => <DrawerContent {...props} />}
-      //drawerContent={(props) => <React.Fragment />}
-      //disable
       drawerType="back"
       overlayColor="transparent"
       drawerStyle={{
@@ -39,11 +29,9 @@ const DrawerNavigator: React.FC = () => {
       }}
       sceneContainerStyle={styles.drawerSceneContainer}
       edgeWidth={window.width}
-
-      //edgeWidth={-100}
     >
       <Drawer.Screen name="Home" component={HomeScene} />
-      <Drawer.Screen name="Help" component={Timetable} />
+      <Drawer.Screen name="TimeTable" component={Timetable} />
       <Drawer.Screen name="Feedback" component={FeedbackScene} />
       <Drawer.Screen name="Profile" component={ProfileScene} />
       <Drawer.Screen name="QR" component={QRScene} />

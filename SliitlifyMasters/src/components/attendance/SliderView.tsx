@@ -12,11 +12,6 @@ const SliderView: React.FC<Props> = () => {
       containerStyle={{ marginHorizontal: 16, marginBottom: 12 }}
       trackStyle={{ height: 6 }}
       thumbStyle={styles.thumbStyle}
-      // renderThumbComponent={() => (
-      //   <View style={styles.shadowBg}>
-      //     <View style={styles.thumbStyle} />
-      //   </View>
-      // )}
       value={5}
       step={1}
       minimumValue={0}

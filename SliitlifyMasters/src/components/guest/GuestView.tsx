@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingBottom: 16,
   },
-  headerSectionContainer: { flex: 1, paddingHorizontal: 8, paddingVertical: 4 },
   stickyHeaderContainer: {
     backgroundColor: 'white',
     flexDirection: 'row',

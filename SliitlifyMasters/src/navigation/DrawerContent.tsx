@@ -13,7 +13,6 @@ import {
   DrawerContentOptions,
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
-import { DrawerActions } from '@react-navigation/native';
 import Animated from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { showToast } from '../util/action';
@@ -153,13 +152,7 @@ const DrawerContent: React.FC<
           icon={AppImages.calander_icon}
           isAssetIcon
           {...{ ...props, translateX }}
-          onpress={() => props.navigation.navigate('Help')}
-        />
-        <DrawerItemRow
-          label="Feedback "
-          icon="help"
-          {...{ ...props, translateX }}
-          onpress={() => props.navigation.navigate('Feedback')}
+          onpress={() => props.navigation.navigate('TimeTable')}
         />
         <DrawerItemRow
           label="View Profile"
@@ -194,6 +187,12 @@ const DrawerContent: React.FC<
           isAssetIcon
           {...{ ...props, translateX }}
           onpress={() => props.navigation.navigate('Marks')}
+        />
+        <DrawerItemRow
+          label="Feedback "
+          icon="help"
+          {...{ ...props, translateX }}
+          onpress={() => props.navigation.navigate('Feedback')}
         />
       </DrawerContentScrollView>
 

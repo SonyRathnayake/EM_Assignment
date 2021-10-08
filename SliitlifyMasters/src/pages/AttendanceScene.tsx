@@ -68,7 +68,7 @@ const FeedbackScene: React.FC<Props> = () => {
           {attendance.total.map((item, index) => {
             return (
               <React.Fragment key={index}>
-                <Text style={[styles2.sectionTitle]}>
+                <Text style={[styles.sectionTitle]}>
                   {attendance.modules[index]}
                 </Text>
                 <Text style={[styles.subTitle, { paddingBottom: 26 }]}>
@@ -138,52 +138,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 16,
   },
-  input: {
-    marginTop: 16,
-    marginHorizontal: 32,
-    backgroundColor: 'white',
-    borderRadius: 8,
-    elevation: 8,
-    minHeight: 80,
-    maxHeight: 160,
-    paddingHorizontal: 10,
-    padding: 16,
-    fontSize: 16,
-    fontFamily: 'WorkSans-Regular',
-    textAlignVertical: 'top',
-  },
-  button: {
-    width: 120,
-    height: 40,
-    padding: 8,
-    marginTop: 16,
-    alignSelf: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'dodgerblue',
-    borderRadius: 4,
-    elevation: 8,
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: '500',
-    textAlign: 'center',
-    padding: 4,
-  },
-});
-
-const styles2 = StyleSheet.create({
-  headerText: {
-    fontSize: 22,
-    fontFamily: 'WorkSans-Bold',
-    textAlign: 'center',
-    textAlignVertical: 'center',
-  },
-  headerShadow: {
-    height: Config.isAndroid ? 0.2 : 1,
-    elevation: 4,
-    backgroundColor: 'lightgrey',
-  },
-  divider: { height: StyleSheet.hairlineWidth, backgroundColor: 'lightgrey' },
   sectionTitle: {
     fontSize: 18,
     fontFamily: 'WorkSans-Regular',
@@ -196,41 +150,6 @@ const styles2 = StyleSheet.create({
     color: 'black',
     alignItems: 'center',
     paddingHorizontal: 16,
-  },
-  checkBoxBtn: {
-    alignSelf: 'flex-start',
-    flexDirection: 'row',
-    padding: 8,
-  },
-  switchText: {
-    flex: 1,
-    fontFamily: 'WorkSans-Regular',
-    alignSelf: 'center',
-  },
-  buttonContainer: {
-    borderRadius: 24,
-    margin: 16,
-    marginTop: 8,
-    elevation: 8,
-    overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
-  },
-  button: {
-    backgroundColor: '#54D3C2',
-    height: 48,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonText: {
-    fontSize: 18,
-    color: 'white',
-    fontFamily: 'WorkSans-Medium',
   },
 });
 
