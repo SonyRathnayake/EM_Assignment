@@ -14,6 +14,7 @@ import { readFirestoreUserId } from '../api/userApi';
 import { showToast } from '../util/action';
 import useName from '../hooks/useName';
 import useID from '../hooks/useID';
+import { useIsConnected } from 'react-native-offline';
 
 interface Props {
   setUser: Function;
@@ -24,15 +25,24 @@ const LoginScene: React.FC<Props> = (props) => {
   const [password, onChangePassword] = React.useState('');
   const { setName } = useName();
   const { setMsNo } = useID();
+  const isConnected = useIsConnected();
   const login = async () => {
-    const data = await readFirestoreUserId(ms);
-    if (data.name != null && data.NIC == password) {
-      props.setUser(data);
-      setName(data.name);
-      setMsNo(ms);
-      showToast('Welcome back ' + data.name + '!');
+    if (isConnected) {
+      if (ms !== '' && password !== '') {
+        const data = await readFirestoreUserId(ms);
+        if (data.name != null && data.NIC == password) {
+          props.setUser(data);
+          setName(data.name);
+          setMsNo(ms);
+          showToast('Welcome back ' + data.name + '!');
+        } else {
+          showToast('Invalid Username/Password!');
+        }
+      } else {
+        showToast('Please enter your credentials');
+      }
     } else {
-      showToast('Invalid Username/Password!');
+      showToast('Please check your Internet Connection');
     }
   };
   return (
