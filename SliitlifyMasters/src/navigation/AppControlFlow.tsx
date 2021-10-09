@@ -7,23 +7,27 @@ import { NavigationContainer } from '@react-navigation/native';
 import { NameProvider } from '../context/NameContext';
 import { MsProvider } from '../context/MSnoContext';
 import { UserProvider } from '../context/UserContext';
+import { NetworkProvider } from 'react-native-offline';
+NetworkProvider;
 const AppControlFlow: React.FC = () => {
   const [user, setUser] = React.useState(null);
   return (
-    <UserProvider>
-      <MsProvider>
-        <NameProvider>
-          {user ? (
-            <NavigationContainer>
-              <AppNavigator setUser={setUser} />
-            </NavigationContainer>
-          ) : (
-            <LoginScene setUser={setUser} />
-          )}
-          <Toast {...{ ref: toastRef }} />
-        </NameProvider>
-      </MsProvider>
-    </UserProvider>
+    <NetworkProvider>
+      <UserProvider>
+        <MsProvider>
+          <NameProvider>
+            {user ? (
+              <NavigationContainer>
+                <AppNavigator setUser={setUser} />
+              </NavigationContainer>
+            ) : (
+              <LoginScene setUser={setUser} />
+            )}
+            <Toast {...{ ref: toastRef }} />
+          </NameProvider>
+        </MsProvider>
+      </UserProvider>
+    </NetworkProvider>
   );
 };
 
