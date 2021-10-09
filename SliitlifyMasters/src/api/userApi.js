@@ -5,6 +5,7 @@ const userApiUrl = {
     'https://us-central1-emassignment-236c8.cloudfunctions.net/backend/api/user/getuser/',
   readAttendance:
     'https://us-central1-emassignment-236c8.cloudfunctions.net/backend/api/getattendance/',
+  createFeedback: '',
 };
 
 const readFirestoreUserId = async (userUid) => {
@@ -31,4 +32,14 @@ const readAttendancebyId = async (userUid) => {
   }
 };
 
-export { readFirestoreUserId, readAttendancebyId };
+const createUserFeedback = async (userUid, feedback) => {
+  await axios
+    .post(userApiUrl.createFeedback, {
+      msNo: userUid,
+      feedback: feedback,
+    })
+    .then()
+    .catch((error) => console.log('createFeedback-->', error));
+};
+
+export { readFirestoreUserId, readAttendancebyId, createUserFeedback };

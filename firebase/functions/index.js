@@ -22,6 +22,14 @@ app.use(cors({ origin: true }));
 app.get("/hello-world", (req, res) => {
   return res.status(200).send("Hello World!");
 });
+app.get("/attendance-marked", (req, res) => {
+  return res
+    .status(200)
+    .send(
+      "You have successfully marked EM attendance on ",
+      admin.firestore.FieldValue.serverTimestamp()
+    );
+});
 
 // Users
 /* Create User */
@@ -127,6 +135,23 @@ app.get("/api/getattendance/:uid", (req, res) => {
       const user = await document.get();
       const response = user.data();
       return res.status(200).send(response);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send(error);
+    }
+  })();
+});
+
+// Student Feedback
+app.post("/api/feedback/create", (req, res) => {
+  (async () => {
+    try {
+      await db.collection("feedback").add({
+        msNo: req.body.msNo,
+        feedback: req.body.feedback,
+        created: admin.firestore.FieldValue.serverTimestamp(),
+      });
+      return res.status(200).send();
     } catch (error) {
       console.log(error);
       return res.status(500).send(error);

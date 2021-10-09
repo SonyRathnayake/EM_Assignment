@@ -63,7 +63,7 @@ const HomeScene: React.FC<Props> = () => {
           android_ripple={{ color: 'grey', radius: 20, borderless: true }}
         >
           <Icon
-            name={isGrid ? 'help' : 'favorite-border'}
+            name={isGrid ? 'wb-sunny' : 'nightlight-round'}
             size={25}
             color="black"
           />
