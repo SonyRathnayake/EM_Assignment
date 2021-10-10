@@ -21,6 +21,7 @@ interface Props {}
 
 const FeedbackScene: React.FC<Props> = () => {
   const navigation = useNavigation<DrawerNavigationProp<{}>>();
+  const [feedback, onChangeFeedback] = React.useState('');
 
   const marginTop = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
   return (
@@ -50,7 +51,12 @@ const FeedbackScene: React.FC<Props> = () => {
         <Text style={styles.subTitle}>
           Your feedback will be fowarded to SLIIT Lecturers
         </Text>
-        <TextInput style={styles.input} placeholder="Enter your feedback..." />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter your feedback..."
+          onChangeText={onChangeFeedback}
+          value={feedback}
+        />
         <Pressable
           style={({ pressed }) => [
             styles.button,

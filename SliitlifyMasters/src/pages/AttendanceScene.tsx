@@ -15,6 +15,9 @@ import useID from '../hooks/useID';
 import Config from '../config/Config';
 import { readAttendancebyId } from '../api/userApi';
 import AttendanceSlider from '../components/attendance/AttendanceSlider';
+import { checkInternetConnection, useIsConnected } from 'react-native-offline';
+import OfflineApp from '../components/offline/OfflineApp';
+import { showToast } from '../util/action';
 
 interface Props {}
 
@@ -34,14 +37,20 @@ const FeedbackScene: React.FC<Props> = () => {
   });
   const navigation = useNavigation<DrawerNavigationProp<{}>>();
   const { msNo } = useID();
-
+  const isConnected = useIsConnected();
   const fetchData = async () => {
-    const data = await readAttendancebyId(msNo);
-    setAattendance(data);
+    if (isConnected && attendance.msNo === '') {
+      const data = await readAttendancebyId(msNo);
+      setAattendance(data);
+    }
+  };
+  const internetChecker = async () => {
+    const isConnected = await checkInternetConnection();
+    return isConnected;
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [isConnected, internetChecker]);
 
   const marginTop = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
   if (attendance.total.length > 0 && attendance.attended.length > 0) {
@@ -90,7 +99,9 @@ const FeedbackScene: React.FC<Props> = () => {
     return (
       <SafeAreaView>
         <View style={{ flexDirection: 'row', padding: 8, paddingBottom: 0 }}>
-          <Text style={styles.Loading}> Loading... </Text>
+          <OfflineApp>
+            <Text style={styles.Loading}> Loading... </Text>
+          </OfflineApp>
         </View>
       </SafeAreaView>
     );

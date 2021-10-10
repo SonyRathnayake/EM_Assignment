@@ -13,7 +13,6 @@ const readFirestoreUserId = async (userUid) => {
     const { data } = await axios
       .get(`${userApiUrl.readUserId}${userUid}`)
       .then();
-    console.log(data);
     return data;
   } catch (error) {
     console.log('readFirestoreUserId-->', error);
@@ -25,7 +24,6 @@ const readAttendancebyId = async (userUid) => {
     const { data } = await axios
       .get(`${userApiUrl.readAttendance}${userUid}`)
       .then();
-    console.log(data);
     return data;
   } catch (error) {
     console.log('readAttendancebyId-->', error);

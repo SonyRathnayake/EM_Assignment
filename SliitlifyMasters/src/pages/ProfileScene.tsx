@@ -18,6 +18,9 @@ import { AppImages } from '../../res';
 import { readFirestoreUserId } from '../api/userApi';
 import { useEffect } from 'react';
 import useID from '../hooks/useID';
+import OfflineApp from '../components/offline/OfflineApp';
+import { checkInternetConnection, useIsConnected } from 'react-native-offline';
+import { showToast } from '../util/action';
 
 interface Props {}
 const deviceWidth = Dimensions.get('screen').width;
@@ -33,16 +36,23 @@ const ProfileScene: React.FC<Props> = () => {
   });
   const navigation = useNavigation<DrawerNavigationProp<{}>>();
   const { msNo } = useID();
+  const isConnected = useIsConnected();
   const fetchData = async () => {
-    console.log(msNo);
-    const data = await readFirestoreUserId(msNo);
-    setUserdata(data);
+    if (isConnected && userdata.name === '') {
+      const data = await readFirestoreUserId(msNo);
+      setUserdata(data);
+    }
+  };
+  const internetChecker = async () => {
+    const isConnected = await checkInternetConnection();
+    return isConnected;
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [isConnected, internetChecker]);
+
   const marginTop = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
-  if (userdata.name != '') {
+  if (userdata.name !== '') {
     return (
       <SafeAreaView style={{ flex: 1, marginTop }}>
         <View style={{ flexDirection: 'row', padding: 8, paddingBottom: 0 }}>
@@ -101,7 +111,9 @@ const ProfileScene: React.FC<Props> = () => {
     return (
       <SafeAreaView>
         <View style={{ flexDirection: 'row', padding: 8, paddingBottom: 0 }}>
-          <Text style={styles.Loading}> Loading... </Text>
+          <OfflineApp>
+            <Text style={styles.Loading}> Loading... </Text>
+          </OfflineApp>
         </View>
       </SafeAreaView>
     );

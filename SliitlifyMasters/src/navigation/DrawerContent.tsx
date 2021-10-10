@@ -20,6 +20,7 @@ import useName from '../hooks/useName';
 import useID from '../hooks/useID';
 import { AppImages } from '../../res';
 import Config from '../config/Config';
+// import RNRestart from 'react-native-restart';
 
 interface DrawerItemProps {
   label: string;
@@ -201,9 +202,8 @@ const DrawerContent: React.FC<
           styles.signOutBtnStyle,
           { opacity: !Config.isAndroid && pressed ? 0.4 : 1 },
         ]}
-        //onPress={() => props.navigation.navigate('Login')}
         onPressOut={() => showToast('Signed out not Implemented yet')}
-        //onPressOut={() => }
+        //onPress={() => RNRestart.Restart()} //Maintain state with redux
         android_ripple={{ color: 'lightgrey' }}
       >
         <Text
