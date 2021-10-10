@@ -17,7 +17,6 @@ import { readAttendancebyId } from '../api/userApi';
 import AttendanceSlider from '../components/attendance/AttendanceSlider';
 import { checkInternetConnection, useIsConnected } from 'react-native-offline';
 import OfflineApp from '../components/offline/OfflineApp';
-import { showToast } from '../util/action';
 
 interface Props {}
 

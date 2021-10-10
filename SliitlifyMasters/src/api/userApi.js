@@ -5,7 +5,8 @@ const userApiUrl = {
     'https://us-central1-emassignment-236c8.cloudfunctions.net/backend/api/user/getuser/',
   readAttendance:
     'https://us-central1-emassignment-236c8.cloudfunctions.net/backend/api/getattendance/',
-  createFeedback: '',
+  createFeedback:
+    'https://us-central1-emassignment-236c8.cloudfunctions.net/backend/api/feedback/create',
 };
 
 const readFirestoreUserId = async (userUid) => {

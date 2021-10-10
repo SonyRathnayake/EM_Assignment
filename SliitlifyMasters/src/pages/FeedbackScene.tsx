@@ -16,13 +16,25 @@ import { DrawerNavigationProp } from '@react-navigation/drawer';
 import { AppImages } from '../../res';
 import { TextInput } from 'react-native-gesture-handler';
 import Config from '../config/Config';
+import useID from '../hooks/useID';
+import { createUserFeedback } from '../api/userApi';
+import { showToast } from '../util/action';
 
 interface Props {}
 
 const FeedbackScene: React.FC<Props> = () => {
   const navigation = useNavigation<DrawerNavigationProp<{}>>();
   const [feedback, onChangeFeedback] = React.useState('');
+  const { msNo } = useID();
 
+  const sendFeedback = async () => {
+    if (msNo !== '' && feedback !== '') {
+      const data = await createUserFeedback(msNo, feedback);
+      showToast('Feedback Successfully sent!');
+    } else {
+      showToast('Please enter your Feedback!');
+    }
+  };
   const marginTop = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
   return (
     <SafeAreaView style={{ flex: 1, marginTop }}>
@@ -62,6 +74,7 @@ const FeedbackScene: React.FC<Props> = () => {
             styles.button,
             { opacity: !Config.isAndroid && pressed ? 0.4 : 1 },
           ]}
+          onPress={() => sendFeedback()}
           android_ripple={{ color: 'grey' }}
         >
           <Text style={styles.buttonText}>Send</Text>

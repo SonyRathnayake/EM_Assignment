@@ -20,7 +20,6 @@ import { useEffect } from 'react';
 import useID from '../hooks/useID';
 import OfflineApp from '../components/offline/OfflineApp';
 import { checkInternetConnection, useIsConnected } from 'react-native-offline';
-import { showToast } from '../util/action';
 
 interface Props {}
 const deviceWidth = Dimensions.get('screen').width;
