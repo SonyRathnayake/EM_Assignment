@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "02fc800f-132e-4d0f-a0e5-4bf93a83d415",
+		"name": "Masters",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "attendance",
+			"item": [
+				{
+					"name": "createAttendance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msNo\":\"sonal\",\r\n    \"module1\":\"Enterprise Mobility\",\r\n    \"module2\":\"Enterprise Software Architecture\",\r\n    \"module3\":\"Distributed Computing\",\r\n    \"module4\":\"Operating Systems\",\r\n    \"module5\":\"Research Methodologies\",\r\n    \"module6\":\"Data Analytics\",\r\n    \"optional\": \"Data Analytics, Operating Systems\",\r\n    \"attended\": \"3,2,1,3,4,5,1\",\r\n    \"total\":\"15,15,10,16,15,20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://us-central1-emassignment-236c8.cloudfunctions.net/backend/api/attendance/create",
+							"protocol": "https",
+							"host": [
+								"us-central1-emassignment-236c8",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"backend",
+								"api",
+								"attendance",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getuserAttendance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://us-central1-emassignment-236c8.cloudfunctions.net/backend/api/getattendance/sonal",
+							"protocol": "https",
+							"host": [
+								"us-central1-emassignment-236c8",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"backend",
+								"api",
+								"getattendance",
+								"sonal"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "getUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://us-central1-emassignment-236c8.cloudfunctions.net/backend/api/user/getuser/sonal",
+							"protocol": "https",
+							"host": [
+								"us-central1-emassignment-236c8",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"backend",
+								"api",
+								"user",
+								"getuser",
+								"sonal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://us-central1-emassignment-236c8.cloudfunctions.net/backend/api/user/getallusers",
+							"protocol": "https",
+							"host": [
+								"us-central1-emassignment-236c8",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"backend",
+								"api",
+								"user",
+								"getallusers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msNo\":\"MSNo is PK\",\r\n    \"cGPA\":\"4.0\",\r\n    \"masterProgramme\":\"Msc. EAD\",\r\n    \"semester\":\"1\",\r\n    \"year\":\"2\",\r\n    \"NIC\":\"952322323V\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://us-central1-emassignment-236c8.cloudfunctions.net/backend/api/user/create",
+							"protocol": "https",
+							"host": [
+								"us-central1-emassignment-236c8",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"backend",
+								"api",
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "feedback",
+			"item": [
+				{
+					"name": "createFeedback",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msNo\":\"msNo is PK\",\r\n    \"feedback\": \"this is the student's feedback\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://us-central1-emassignment-236c8.cloudfunctions.net/backend/api/feedback/create",
+							"protocol": "https",
+							"host": [
+								"us-central1-emassignment-236c8",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"backend",
+								"api",
+								"feedback",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
